@@ -8,12 +8,12 @@ export function Projects() {
   return (
     <Section id="projects" aria-labelledby="projects-heading">
       <Container>
-        <div className="space-y-12 md:space-y-16">
+        <div className="space-y-8 md:space-y-10">
           <Heading
             id="projects-heading"
             as="h2"
             title="Projects"
-            subtitle="Selected projects I&apos;ve worked on."
+            subtitle="Selected projects and business systems I have worked on."
           />
 
           <div className="grid gap-4 md:grid-cols-2 md:gap-6">
