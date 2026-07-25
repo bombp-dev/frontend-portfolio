@@ -38,15 +38,16 @@ export function Contact() {
   return (
     <Section id="contact" aria-labelledby="contact-heading">
       <Container>
-        <div className="grid gap-8 md:grid-cols-2 md:items-start md:gap-12 lg:gap-16">
+        <div className="grid min-w-0 gap-8 md:grid-cols-2 md:items-start md:gap-10 lg:gap-16">
           <Heading
             id="contact-heading"
             as="h2"
             title="Contact"
             subtitle="Open to frontend opportunities, collaborations, and project inquiries."
+            className="min-w-0"
           />
 
-          <div className="flex flex-col gap-6 md:gap-8">
+          <div className="flex min-w-0 flex-col gap-6 md:gap-8">
             <div className="space-y-2">
               <p className="text-base leading-7 text-[var(--foreground)] md:text-lg md:leading-8">
                 Interested in working together?
@@ -64,7 +65,7 @@ export function Contact() {
                 <Button
                   href={item.href}
                   variant={item.variant}
-                  className="w-full justify-start sm:w-auto"
+                  className="w-full max-w-full justify-start break-all"
                 >
                   {item.value}
                 </Button>

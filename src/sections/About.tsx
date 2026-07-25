@@ -6,7 +6,7 @@ export function About() {
   return (
     <Section id="about" aria-labelledby="about-heading">
       <Container>
-        <div className="max-w-[700px] space-y-6 text-left md:space-y-8">
+        <div className="max-w-[700px] min-w-0 space-y-6 text-left md:space-y-8">
           <Heading
             id="about-heading"
             as="h2"

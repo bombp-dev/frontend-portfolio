@@ -11,7 +11,6 @@ import {
 } from "react";
 
 import { Container } from "@/components/layout/Container";
-import { siteConfig } from "@/config/site";
 import { navigation } from "@/constants/navigation";
 import { cn } from "@/lib/cn";
 
@@ -30,13 +29,13 @@ const styles = {
   resumeButton:
     "inline-flex items-center justify-center border border-[var(--border)] px-4 py-2 text-sm tracking-wide text-[var(--foreground)] transition-colors duration-200 hover:border-[var(--foreground)] hover:bg-[var(--surface)]",
   hamburgerButton:
-    "relative flex h-10 w-10 items-center justify-center text-[var(--foreground)] transition-colors duration-200 hover:text-[var(--secondary)] md:hidden",
+    "relative flex h-10 w-10 items-center justify-center text-[var(--foreground)] transition-colors duration-200 hover:text-[var(--secondary)] lg:hidden",
   logo:
     "text-sm font-medium tracking-[0.2em] text-[var(--foreground)] transition-colors duration-200 hover:text-[var(--secondary)]",
   mobilePanel:
     "border-t border-[var(--border)] bg-[var(--background)]/95 backdrop-blur-md transition-opacity duration-300 ease-in-out",
   mobileMenuGrid:
-    "grid transition-[grid-template-rows] duration-300 ease-in-out md:hidden",
+    "grid transition-[grid-template-rows] duration-300 ease-in-out lg:hidden",
   header:
     "sticky top-0 z-50 w-full transition-[background-color,border-color,backdrop-filter] duration-300 ease-in-out",
 } as const;
@@ -192,8 +191,10 @@ interface ResumeButtonProps {
 function ResumeButton({ className, onClick }: ResumeButtonProps) {
   return (
     <Link
-      href={siteConfig.resume}
+      href="/resume.pdf"
       download
+      target="_blank"
+      rel="noopener noreferrer"
       onClick={onClick}
       className={cn(styles.resumeButton, styles.focusRing, className)}
     >
@@ -277,8 +278,8 @@ interface DesktopNavProps {
 
 function DesktopNav({ onNavigate }: DesktopNavProps) {
   return (
-    <div className="hidden items-center gap-8 md:flex">
-      <ul className="flex items-center gap-8">
+    <div className="hidden items-center gap-5 lg:flex xl:gap-8">
+      <ul className="flex items-center gap-5 xl:gap-8">
         <NavItems onNavigate={onNavigate} />
       </ul>
       <ResumeButton />

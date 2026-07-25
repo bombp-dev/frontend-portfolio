@@ -22,9 +22,9 @@ export function Hero() {
       </div>
 
       <Container>
-        <div className="relative max-w-3xl text-left">
+        <div className="relative min-w-0 max-w-3xl text-left">
           <div className="flex flex-col items-start gap-8 md:gap-10">
-            <Badge className="border-[var(--border)] text-[var(--secondary)]">
+            <Badge className="max-w-full whitespace-normal border-[var(--border)] text-[var(--secondary)]">
               {heroContent.badge}
             </Badge>
 
@@ -53,6 +53,7 @@ export function Hero() {
                 href={heroContent.secondaryButton.href}
                 variant="secondary"
                 download={heroContent.secondaryButton.download}
+                openInNewTab={heroContent.secondaryButton.openInNewTab}
                 className="w-full sm:w-auto"
               >
                 {heroContent.secondaryButton.label}

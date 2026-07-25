@@ -13,7 +13,7 @@ export function Section({
   return (
     <section
       id={id}
-      className={cn("py-24 md:py-32", className)}
+      className={cn("py-16 md:py-24 lg:py-32", className)}
       {...props}
     >
       {children}

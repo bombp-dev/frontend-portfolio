@@ -1,9 +1,8 @@
-import { siteConfig } from "@/config/site";
-
 interface HeroButton {
   label: string;
   href: string;
   download?: boolean;
+  openInNewTab?: boolean;
 }
 
 interface HeroContent {
@@ -29,7 +28,8 @@ with React & Next.js.`,
   },
   secondaryButton: {
     label: "Download Resume",
-    href: siteConfig.resume,
+    href: "/resume.pdf",
     download: true,
+    openInNewTab: true,
   },
 };

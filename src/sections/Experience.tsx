@@ -8,7 +8,7 @@ export function Experience() {
   return (
     <Section id="experience" aria-labelledby="experience-heading">
       <Container>
-        <div className="space-y-8 md:space-y-10">
+        <div className="min-w-0 space-y-8 md:space-y-10">
           <Heading
             id="experience-heading"
             as="h2"

@@ -10,6 +10,7 @@ interface ButtonProps {
   children: ReactNode;
   variant?: ButtonVariant;
   download?: boolean;
+  openInNewTab?: boolean;
   className?: string;
 }
 
@@ -25,14 +26,17 @@ export function Button({
   children,
   variant = "primary",
   download,
+  openInNewTab,
   className,
 }: ButtonProps) {
   return (
     <Link
       href={href}
       download={download}
+      target={openInNewTab ? "_blank" : undefined}
+      rel={openInNewTab ? "noopener noreferrer" : undefined}
       className={cn(
-        "inline-flex items-center justify-center border px-5 py-2.5 text-sm tracking-wide transition-colors duration-200 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--foreground)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]",
+        "inline-flex min-w-0 items-center justify-center border px-5 py-2.5 text-sm tracking-wide transition-colors duration-200 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--foreground)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--background)]",
         variantStyles[variant],
         className
       )}

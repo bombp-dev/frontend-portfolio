@@ -11,14 +11,14 @@ export function Footer() {
     <footer className="border-t border-[var(--border)] py-8 md:py-10">
       <Container>
         <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-          <div className="space-y-1">
+          <div className="min-w-0 space-y-1">
             <p className="text-sm font-medium text-[var(--foreground)]">
               {siteConfig.name}
             </p>
             <p className="text-sm text-[var(--secondary)]">Frontend Developer</p>
           </div>
 
-          <nav aria-label="Footer links" className="flex gap-6">
+          <nav aria-label="Footer links" className="flex flex-wrap gap-x-6 gap-y-3">
             <a
               href={siteConfig.github}
               target="_blank"

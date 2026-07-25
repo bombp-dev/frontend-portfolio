@@ -27,7 +27,7 @@ export function Heading({
 }: HeadingProps) {
   return (
     <div className={cn("space-y-4", className)}>
-      <Component id={id} className={cn(sizeStyles[size])}>
+      <Component id={id} className={cn(sizeStyles[size], "break-words")}>
         {title}
       </Component>
 

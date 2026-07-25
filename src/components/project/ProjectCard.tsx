@@ -15,9 +15,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
   ].filter((link) => link.href);
 
   return (
-    <article className="flex h-full flex-col gap-8 border border-[var(--border)] p-6 transition-[transform,border-color] duration-200 ease-out hover:-translate-y-1 hover:border-[var(--secondary)] motion-reduce:transform-none motion-reduce:transition-none md:gap-10 md:p-8">
-      <header className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:gap-6">
-        <div className="space-y-4">
+    <article className="flex h-full min-w-0 flex-col gap-6 border border-[var(--border)] p-5 transition-[transform,border-color] duration-200 ease-out hover:-translate-y-1 hover:border-[var(--secondary)] motion-reduce:transform-none motion-reduce:transition-none sm:p-6 md:gap-8 md:p-8">
+      <header className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-start sm:gap-6">
+        <div className="min-w-0 space-y-4">
           {project.featured && (
             <Badge className="rounded-none border-[var(--border)] px-3 py-1.5 text-xs font-medium uppercase tracking-[0.14em] text-[var(--secondary)]">
               Featured
@@ -50,7 +50,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
             </dl>
           )}
         </div>
-        <Badge className="rounded-none border-[var(--border)] px-3 py-1.5 text-xs font-medium tracking-wide text-[var(--secondary)]">
+        <Badge className="shrink-0 rounded-none border-[var(--border)] px-3 py-1.5 text-xs font-medium tracking-wide text-[var(--secondary)]">
           {project.status}
         </Badge>
       </header>
@@ -75,7 +75,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           {project.responsibilities.map((responsibility) => (
             <li key={responsibility} className="flex gap-3">
               <span aria-hidden="true" className="mt-3 h-px w-3 shrink-0 bg-[var(--border)]" />
-              <span>{responsibility}</span>
+              <span className="min-w-0">{responsibility}</span>
             </li>
           ))}
         </ul>

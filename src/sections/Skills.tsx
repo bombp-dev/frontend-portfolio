@@ -9,7 +9,7 @@ export function Skills() {
   return (
     <Section id="skills" aria-labelledby="skills-heading">
       <Container>
-        <div className="max-w-3xl space-y-12 text-left md:space-y-16">
+        <div className="max-w-3xl min-w-0 space-y-10 text-left md:space-y-14">
           <Heading id="skills-heading" as="h2" title="Skills" />
 
           <div className="space-y-8 md:space-y-10">

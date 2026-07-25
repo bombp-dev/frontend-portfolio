@@ -12,7 +12,7 @@ export function ExperienceItem({ experience }: ExperienceItemProps) {
     <article className="border-l border-[var(--border)] py-1 pl-5 sm:pl-6 md:py-2 md:pl-8">
       <div className="max-w-3xl space-y-6 md:space-y-8">
         <header className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
-          <div className="space-y-2">
+          <div className="min-w-0 space-y-2">
             <h3 className="text-2xl font-semibold leading-tight tracking-tight md:text-3xl">
               {experience.role}
             </h3>
@@ -45,7 +45,7 @@ export function ExperienceItem({ experience }: ExperienceItemProps) {
                   aria-hidden="true"
                   className="mt-3 h-px w-3 shrink-0 bg-[var(--border)]"
                 />
-                <span>{responsibility}</span>
+                <span className="min-w-0">{responsibility}</span>
               </li>
             ))}
           </ul>

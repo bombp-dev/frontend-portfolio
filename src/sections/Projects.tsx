@@ -8,7 +8,7 @@ export function Projects() {
   return (
     <Section id="projects" aria-labelledby="projects-heading">
       <Container>
-        <div className="space-y-8 md:space-y-10">
+        <div className="min-w-0 space-y-8 md:space-y-10">
           <Heading
             id="projects-heading"
             as="h2"
@@ -16,7 +16,7 @@ export function Projects() {
             subtitle="Selected projects and business systems I have worked on."
           />
 
-          <div className="grid gap-4 md:grid-cols-2 md:gap-6">
+          <div className="grid min-w-0 gap-4 md:grid-cols-2 md:gap-6">
             {projects.map((project) => (
               <ProjectCard key={project.id} project={project} />
             ))}
