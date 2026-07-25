@@ -8,6 +8,14 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: siteConfig.title,
   description: siteConfig.description,
+  keywords: [
+    "Frontend Developer",
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Portfolio",
+  ],
+  authors: [{ name: "Chanchai Phoyoo" }],
 };
 
 export default function RootLayout({
