@@ -26,13 +26,16 @@ export function Heading({
   className,
 }: HeadingProps) {
   return (
-    <div className={cn("space-y-4", className)}>
-      <Component id={id} className={cn(sizeStyles[size], "break-words")}>
+    <div className={cn("min-w-0 space-y-4", className)}>
+      <Component
+        id={id}
+        className={cn(sizeStyles[size], "max-w-full break-words [overflow-wrap:anywhere]")}
+      >
         {title}
       </Component>
 
       {subtitle && (
-        <p className="max-w-2xl text-base leading-7 text-[var(--secondary)] md:text-lg md:leading-8">
+        <p className="max-w-2xl text-base leading-7 break-words text-[var(--secondary)] [overflow-wrap:anywhere] md:text-lg md:leading-8">
           {subtitle}
         </p>
       )}

@@ -16,14 +16,13 @@ export function Experience() {
             subtitle="Professional experience and selected client work."
           />
 
-          <div className="flex flex-col gap-10 md:gap-12">
+          <ol className="flex list-none flex-col gap-10 p-0 md:gap-12">
             {experiences.map((experience) => (
-              <ExperienceItem
-                key={`${experience.company}-${experience.period}`}
-                experience={experience}
-              />
+              <li key={`${experience.company}-${experience.period}`}>
+                <ExperienceItem experience={experience} />
+              </li>
             ))}
-          </div>
+          </ol>
         </div>
       </Container>
     </Section>

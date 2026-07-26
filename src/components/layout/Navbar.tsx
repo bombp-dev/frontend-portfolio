@@ -3,10 +3,12 @@
 import Link from "next/link";
 import {
   type ButtonHTMLAttributes,
+  type Ref,
   type ReactNode,
   useCallback,
   useEffect,
   useId,
+  useRef,
   useState,
 } from "react";
 
@@ -158,7 +160,7 @@ function AriaHiddenPanel({
   }
 
   return (
-    <div id={id} aria-hidden="false" aria-label={label} className={className}>
+    <div id={id} role="region" aria-label={label} className={className}>
       {children}
     </div>
   );
@@ -169,11 +171,13 @@ interface NavLinkProps {
   label: string;
   onClick?: () => void;
   className?: string;
+  ref?: Ref<HTMLAnchorElement>;
 }
 
-function NavLink({ href, label, onClick, className }: NavLinkProps) {
+function NavLink({ href, label, onClick, className, ref }: NavLinkProps) {
   return (
     <Link
+      ref={ref}
       href={href}
       onClick={onClick}
       className={cn(styles.navLink, styles.focusRing, className)}
@@ -196,6 +200,7 @@ function ResumeButton({ className, onClick }: ResumeButtonProps) {
       target="_blank"
       rel="noopener noreferrer"
       onClick={onClick}
+      aria-label="Download resume (PDF, opens in new tab)"
       className={cn(styles.resumeButton, styles.focusRing, className)}
     >
       Download Resume
@@ -207,16 +212,23 @@ interface NavItemsProps {
   itemClassName?: string;
   linkClassName?: string;
   onNavigate?: () => void;
+  firstItemRef?: React.RefObject<HTMLAnchorElement | null>;
 }
 
-function NavItems({ itemClassName, linkClassName, onNavigate }: NavItemsProps) {
-  return navigation.map((item) => (
+function NavItems({
+  itemClassName,
+  linkClassName,
+  onNavigate,
+  firstItemRef,
+}: NavItemsProps) {
+  return navigation.map((item, index) => (
     <li key={item.href} className={itemClassName}>
       <NavLink
         href={item.href}
         label={item.label}
         onClick={onNavigate}
         className={linkClassName}
+        ref={index === 0 ? firstItemRef : undefined}
       />
     </li>
   ));
@@ -291,9 +303,10 @@ interface MobileNavProps {
   id: string;
   isOpen: boolean;
   onNavigate: () => void;
+  firstItemRef: React.RefObject<HTMLAnchorElement | null>;
 }
 
-function MobileNav({ id, isOpen, onNavigate }: MobileNavProps) {
+function MobileNav({ id, isOpen, onNavigate, firstItemRef }: MobileNavProps) {
   return (
     <AriaHiddenPanel
       hidden={!isOpen}
@@ -311,9 +324,10 @@ function MobileNav({ id, isOpen, onNavigate }: MobileNavProps) {
             isOpen ? "opacity-100" : "opacity-0"
           )}
         >
-          <ul className="flex flex-col px-6 py-6">
+          <ul className="flex flex-col px-4 py-6 sm:px-6 lg:px-8">
             <NavItems
               onNavigate={onNavigate}
+              firstItemRef={firstItemRef}
               itemClassName="border-b border-[var(--border)]"
               linkClassName="block py-4 text-base"
             />
@@ -331,6 +345,15 @@ export function Navbar() {
   const scrolled = useScrolled();
   const { isOpen, close, toggle } = useMobileMenu();
   const mobileMenuId = useId();
+  const firstMobileLinkRef = useRef<HTMLAnchorElement>(null);
+
+  useEffect(() => {
+    if (!isOpen) {
+      return;
+    }
+
+    firstMobileLinkRef.current?.focus();
+  }, [isOpen]);
 
   return (
     <header
@@ -343,8 +366,12 @@ export function Navbar() {
     >
       <nav aria-label="Main navigation">
         <Container>
-          <div className="flex h-16 items-center justify-between">
-            <Link href="/" className={cn(styles.logo, styles.focusRing)}>
+          <div className="flex h-16 min-w-0 items-center justify-between gap-4">
+            <Link
+              href="/"
+              aria-label="Chanchai, home page"
+              className={cn(styles.logo, styles.focusRing, "shrink-0")}
+            >
               CHANCHAI
             </Link>
 
@@ -358,7 +385,12 @@ export function Navbar() {
           </div>
         </Container>
 
-        <MobileNav id={mobileMenuId} isOpen={isOpen} onNavigate={close} />
+        <MobileNav
+          id={mobileMenuId}
+          isOpen={isOpen}
+          onNavigate={close}
+          firstItemRef={firstMobileLinkRef}
+        />
       </nav>
     </header>
   );

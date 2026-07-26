@@ -16,11 +16,16 @@ export function Projects() {
             subtitle="Selected projects and business systems I have worked on."
           />
 
-          <div className="grid min-w-0 gap-4 md:grid-cols-2 md:gap-6">
+          <ul
+            className="grid min-w-0 list-none gap-5 p-0 sm:gap-6 md:grid-cols-2 md:gap-6"
+            role="list"
+          >
             {projects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
+              <li key={project.id} className="min-w-0">
+                <ProjectCard project={project} />
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
       </Container>
     </Section>

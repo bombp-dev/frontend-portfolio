@@ -14,6 +14,7 @@ export const experiences: Experience[] = [
       "Developed dashboard features for business operations.",
     ],
     technologies: [
+      "Angular",
       "React",
       "TypeScript",
       "REST API",
@@ -36,6 +37,7 @@ export const experiences: Experience[] = [
       "Developed waste trading and carbon reduction web application.",
     ],
     technologies: [
+      "Angular",
       "React",
       "Next.js",
       "TypeScript",
@@ -59,6 +61,7 @@ export const experiences: Experience[] = [
       "Collaborated with developers and stakeholders to improve the platform.",
     ],
     technologies: [
+      "Angular",
       "React",
       "Next.js",
       "TypeScript",

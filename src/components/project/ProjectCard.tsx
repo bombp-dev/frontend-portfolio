@@ -15,17 +15,24 @@ export function ProjectCard({ project }: ProjectCardProps) {
   ].filter((link) => link.href);
 
   return (
-    <article className="flex h-full min-w-0 flex-col gap-6 border border-[var(--border)] p-5 transition-[transform,border-color] duration-200 ease-out hover:-translate-y-1 hover:border-[var(--secondary)] motion-reduce:transform-none motion-reduce:transition-none sm:p-6 md:gap-8 md:p-8">
-      <header className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-start sm:gap-6">
-        <div className="min-w-0 space-y-4">
+    <article
+      aria-labelledby={`${project.id}-title`}
+      className="flex h-full min-w-0 flex-col gap-6 border border-[var(--border)] p-5 transition-[transform,border-color] duration-200 ease-out hover:-translate-y-1 hover:border-[var(--secondary)] motion-reduce:transform-none motion-reduce:transition-none sm:p-6 md:gap-8 md:p-8"
+    >
+      <header className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:flex-wrap sm:items-start sm:gap-x-6 sm:gap-y-4">
+        <div className="min-w-0 flex-1 basis-full space-y-4 sm:basis-auto sm:pr-2">
           {project.featured && (
             <Badge className="rounded-none border-[var(--border)] px-3 py-1.5 text-xs font-medium uppercase tracking-[0.14em] text-[var(--secondary)]">
+              <span className="sr-only">Featured project: </span>
               Featured
             </Badge>
           )}
 
           <div className="space-y-3">
-            <h3 className="text-2xl font-semibold leading-tight tracking-tight md:text-3xl">
+            <h3
+              id={`${project.id}-title`}
+              className="text-2xl font-semibold leading-tight tracking-tight md:text-3xl"
+            >
               {project.title}
             </h3>
             <p className="text-xs font-medium uppercase tracking-[0.14em] text-[var(--secondary)]">
@@ -51,6 +58,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           )}
         </div>
         <Badge className="shrink-0 rounded-none border-[var(--border)] px-3 py-1.5 text-xs font-medium tracking-wide text-[var(--secondary)]">
+          <span className="sr-only">Status: </span>
           {project.status}
         </Badge>
       </header>
@@ -82,9 +90,15 @@ export function ProjectCard({ project }: ProjectCardProps) {
       </section>
 
       {links.length > 0 && (
-        <nav aria-label={`Links for ${project.title}`} className="mt-auto flex flex-wrap gap-3">
+        <nav aria-label={`Links for ${project.title}`} className="mt-auto flex w-full min-w-0 flex-wrap gap-3 sm:gap-4">
           {links.map((link) => (
-            <Button key={link.label} href={link.href} variant={link.variant}>
+            <Button
+              key={link.label}
+              href={link.href}
+              variant={link.variant}
+              openInNewTab={link.href.startsWith("http")}
+              className="min-w-0 max-w-full sm:max-w-none"
+            >
               {link.label}
             </Button>
           ))}

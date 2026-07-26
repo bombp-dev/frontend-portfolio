@@ -10,7 +10,7 @@ export function Footer() {
   return (
     <footer className="border-t border-[var(--border)] py-8 md:py-10">
       <Container>
-        <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between sm:gap-8">
           <div className="min-w-0 space-y-1">
             <p className="text-sm font-medium text-[var(--foreground)]">
               {siteConfig.name}
@@ -18,7 +18,10 @@ export function Footer() {
             <p className="text-sm text-[var(--secondary)]">Frontend Developer</p>
           </div>
 
-          <nav aria-label="Footer links" className="flex flex-wrap gap-x-6 gap-y-3">
+          <nav
+            aria-label="Footer links"
+            className="flex min-w-0 flex-wrap items-center gap-x-6 gap-y-3"
+          >
             <a
               href={siteConfig.github}
               target="_blank"
@@ -26,6 +29,7 @@ export function Footer() {
               className={linkClassName}
             >
               GitHub
+              <span className="sr-only"> (opens in new tab)</span>
             </a>
             <a href={`mailto:${siteConfig.email}`} className={linkClassName}>
               Email

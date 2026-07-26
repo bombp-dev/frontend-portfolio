@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { Navbar } from "@/components/layout/Navbar";
+import { SkipLink } from "@/components/layout/SkipLink";
 import { siteConfig } from "@/config/site";
 
 import "./globals.css";
@@ -14,6 +15,7 @@ export const metadata: Metadata = {
     "Next.js",
     "TypeScript",
     "Portfolio",
+    "Thailand"
   ],
   authors: [{ name: "Chanchai Phoyoo" }],
 };
@@ -26,6 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="flex min-h-full flex-col overflow-x-clip">
+        <SkipLink />
         <Navbar />
         {children}
       </body>

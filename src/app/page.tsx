@@ -8,7 +8,7 @@ import { Skills } from "@/sections/Skills";
 
 export default function Home() {
   return (
-    <main className="min-w-0 flex-1">
+    <main id="main-content" className="min-w-0 flex-1 overflow-x-clip" tabIndex={-1}>
       <Hero />
       <About />
       <Skills />

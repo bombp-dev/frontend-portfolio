@@ -7,19 +7,26 @@ interface ExperienceItemProps {
 
 export function ExperienceItem({ experience }: ExperienceItemProps) {
   const responsibilitiesId = `${experience.company}-${experience.role}-responsibilities`;
+  const titleId = `${experience.company}-${experience.role}-title`;
 
   return (
-    <article className="border-l border-[var(--border)] py-1 pl-5 sm:pl-6 md:py-2 md:pl-8">
+    <article
+      aria-labelledby={titleId}
+      className="border-l border-[var(--border)] py-1 pl-5 sm:pl-6 md:py-2 md:pl-8"
+    >
       <div className="max-w-3xl space-y-6 md:space-y-8">
-        <header className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
-          <div className="min-w-0 space-y-2">
-            <h3 className="text-2xl font-semibold leading-tight tracking-tight md:text-3xl">
+        <header className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-start sm:justify-between sm:gap-x-6 sm:gap-y-2">
+          <div className="min-w-0 flex-1 space-y-2">
+            <h3
+              id={titleId}
+              className="text-2xl font-semibold leading-tight tracking-tight md:text-3xl"
+            >
               {experience.role}
             </h3>
             <p className="text-sm leading-6 text-[var(--secondary)]">{experience.company}</p>
           </div>
 
-          <p className="shrink-0 text-sm tabular-nums leading-6 tracking-wide text-[var(--secondary)] sm:text-right">
+          <p className="w-full shrink-0 text-sm tabular-nums leading-6 tracking-wide text-[var(--secondary)] sm:w-auto sm:text-right">
             {experience.period}
           </p>
         </header>

@@ -8,7 +8,7 @@ export function ProjectTech({ technologies }: ProjectTechProps) {
       {technologies.map((technology) => (
         <li
           key={technology}
-          className="border border-[var(--border)] px-3 py-1.5 text-xs font-medium tracking-wide text-[var(--secondary)]"
+          className="max-w-full border border-[var(--border)] px-3 py-1.5 text-xs font-medium tracking-wide break-words text-[var(--secondary)]"
         >
           {technology}
         </li>

@@ -2,6 +2,25 @@ import type { Project } from "@/types/project";
 
 export const projects: Project[] = [
   {
+    id: "amulet-dashboard",
+    title: "Amulet Dashboard",
+    description:
+      "An internal operations dashboard supporting inventory, sales, and management teams with clear business reporting views.",
+    responsibilities: [
+      "Developed responsive inventory, sales, and management dashboard screens.",
+      "Built reusable data-display, filter, and status-management interface patterns.",
+      "Connected frontend dashboard views to REST API data sources.",
+    ],
+    role: "Frontend Developer",
+    technologies: ["Angular", "REST API", "Dashboard UI"],
+    status: "Completed",
+    demoUrl: "",
+    githubUrl: "",
+    featured: false,
+    year: 2023,
+    company: "Confidential Client",
+  },
+  {
     id: "air-repair-platform",
     title: "Air Repair Platform",
     description:
@@ -12,7 +31,7 @@ export const projects: Project[] = [
       "Maintained reusable UI patterns across operational screens.",
     ],
     role: "Frontend Developer",
-    technologies: ["React", "Next.js", "TypeScript", "REST API"],
+    technologies: ["Angular", "TypeScript", "REST API"],
     status: "Completed",
     demoUrl: "",
     githubUrl: "",
@@ -56,25 +75,6 @@ export const projects: Project[] = [
     githubUrl: "",
     featured: false,
     year: 2024,
-    company: "Confidential Client",
-  },
-  {
-    id: "amulet-dashboard",
-    title: "Amulet Dashboard",
-    description:
-      "An internal operations dashboard supporting inventory, sales, and management teams with clear business reporting views.",
-    responsibilities: [
-      "Developed responsive inventory, sales, and management dashboard screens.",
-      "Built reusable data-display, filter, and status-management interface patterns.",
-      "Connected frontend dashboard views to REST API data sources.",
-    ],
-    role: "Frontend Developer",
-    technologies: ["React", "REST API", "Dashboard UI"],
-    status: "Completed",
-    demoUrl: "",
-    githubUrl: "",
-    featured: false,
-    year: 2023,
     company: "Confidential Client",
   },
 ];
